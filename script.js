@@ -12,8 +12,8 @@ function writePassword() {
 // TODO: create an array of CAP letters, lower letters, nums, and special char
 var passCharUpper = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
 var passCharLower = ["abcdefghijklmnopqrstuvwxyz"];
-// var passCharNum = ["0123456789"]; 
-// var passCharSpec = ["!@#$%^&*()"];
+var passCharNum = ["0123456789"]; 
+var passCharSpec = ["!@#$%^&*()"];
 
 // TODO: create an empty array to hold user requested characters
 var finalArray = [];
@@ -35,10 +35,16 @@ function generatePassword() {
     finalArray.push("Lower")
   }
   // TODO: Create confirm to ask user if they want numbers and set to a variable
-  // var num = confirm("Would you like numbers in your password?");
+  var num = confirm("Would you like numbers in your password?");
+  if (num === true) {
+    finalArray.push("Number")
+  }
 
   // // TODO: Create confirm to ask user if they want special characters and set to a variable
-  // var specialCharQ = confirm("Would you like special chars in your password?");
+  var specialCharQ = confirm("Would you like special chars in your password?");
+  if (specialCharQ === true) {
+    finalArray.push("Special")
+  }
 
   // // TODO: create a conditional to make sure the user has chosen at least one type of character
   // if (capitalLetters, lowerLetters, num, specialCharQ===true) {
@@ -67,12 +73,12 @@ function generatePassword() {
   console.log(passLength);
 
   // TODO: create a conditional to make sure the user has chosen at least one type of character
-  // // if (capitalLetters, lowerLetters, num, specialCharQ===true) {
-  //     console.log("They've chosen at least one type of character");
-  // }
-  // else {
-  //   alert("You have to choose one ya dingus");
-  // }
+  if (capitalLetters, lowerLetters, num, specialCharQ===true) {
+      console.log("They've chosen at least one type of character");
+  }
+  else {
+    alert("You have to choose one ya dingus");
+  }
 
 
 
@@ -98,15 +104,15 @@ function generatePassword() {
 
         console.log(passCharSelected);
       }
-      // else if(num===true) {
-      //  passCharSelected=passCharUpper[Math.floor(Math.random()*passCharUpper.length)]
+      else if(passCharType === "Number") {
+       passCharSelected=passCharNum[Math.floor(Math.random()*passCharNum.length)]
 
-      // console.log(passCharSelected);
-      // }
-      // else if(specialCharQ===true) {
-      //  passCharSelected=passCharSpec[Math.floor(Math.random()*passCharSpec.length)]
+      console.log(passCharSelected);
+      }
+      else if(passCharType === "Special") {
+       passCharSelected=passCharSpec[Math.floor(Math.random()*passCharSpec.length)]
 
-      // console.log(passCharSelected);
+      console.log(passCharSelected);
       finalPassword = finalPassword + passCharSelected
       console.log(finalPassword);
     }
@@ -114,7 +120,7 @@ function generatePassword() {
   }
 }
 
-// }
+}
 writePassword()
 
 // var specialCharQ = confirm("Would you like special chars in your password?")
