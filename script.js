@@ -73,7 +73,7 @@ function generatePassword() {
   console.log(passLength);
 
   // TODO: create a conditional to make sure the user has chosen at least one type of character
-  if (capitalLetters, lowerLetters, num, specialCharQ===true) {
+  if (capitalLetters|| lowerLetters|| num|| specialCharQ===true) {
       console.log("They've chosen at least one type of character");
   }
   else {
