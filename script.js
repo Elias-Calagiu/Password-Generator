@@ -1,6 +1,5 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -10,45 +9,34 @@ function writePassword() {
 
 }
 // TODO: create an array of CAP letters, lower letters, nums, and special char
-var passCharUpper = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
-var passCharLower = ["abcdefghijklmnopqrstuvwxyz"];
-var passCharNum = ["0123456789"]; 
-var passCharSpec = ["!@#$%^&*()"];
+var passCharUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var passCharLower = "abcdefghijklmnopqrstuvwxyz";
+var passCharNum = "0123456789"; 
+var passCharSpec = "!@#$%^&*()";
 
-// TODO: create an empty array to hold user requested characters
-
-// TODO: console.log every step of the way
-
-// TODO: Create generatePassword function and write all the logic within this function
 
 function generatePassword() {
-  var finalArray = "";
-  var finalPassword = ""
-  // TODO: Create confirm to ask user if they want capital letters and set to a variable
+  var passwordCharacters = "";
+  var newPassword = "";
+
+  //  Create confirm to ask user if they want capital letters and set to a variable
   var capitalLetters = confirm("Would you like capital letters in your password?");
   
   
-  // TODO: Create confirm to ask user if they want lowercase letters and set to a variable
+  //  Create confirm to ask user if they want lowercase letters and set to a variable
   var lowerLetters = confirm("Would you like lowercase letters in your password?");
   
-  // TODO: Create confirm to ask user if they want numbers and set to a variable
+  //  Create confirm to ask user if they want numbers and set to a variable
   var num = confirm("Would you like numbers in your password?");
   
 
-  // // TODO: Create confirm to ask user if they want special characters and set to a variable
+  // //  Create confirm to ask user if they want special characters and set to a variable
   var specialCharQ = confirm("Would you like special chars in your password?");
   
 
-  // // TODO: create a conditional to make sure the user has chosen at least one type of character
-  // if (capitalLetters, lowerLetters, num, specialCharQ===true) {
-  //   console.log("They've chosen at least one type of character");
-  // }
-  // else {
-  // alert("You have to choose one ya dingus");
-  // return;
-  // }
+  
 
-// TODO: create a conditional to make sure the user has chosen at least one type of character
+//  create a conditional to make sure the user has chosen at least one type of character
 if (capitalLetters|| lowerLetters|| num|| specialCharQ===true) {
   console.log("They've chosen at least one type of character");
 }
@@ -56,96 +44,44 @@ else {
 alert("You have to choose one ya dingus");
 }
 
-  // TODO: Create prompt to ask user if how many char they like they pass to be (at least 8 characters and no more than 128) and set to variable
+  //  Create prompt to ask user if how many char they like they pass to be (at least 8 characters and no more than 128) and set to variable
   var passLength = prompt("How long would you like your password to be? (between 8-128 characters)");
-  if (passLength < 8) {
-    alert("must be 8 characters or above");
-    // return;
+  if (passLength < 8|| passLength> 128|| isNaN(passLength)) {
+    alert("must be between 8 and 128 characters");
   }
+
   if (passLength > 128) {
     alert("must be 128 characters or less");
-    // return;
   }
+
   if (isNaN(passLength) === true) {
     alert("gotta pick a number nerd");
-    // return;
-  }
-  console.log(passLength);
-
+  } else {
+    if (capitalLetters === true) {
+      passwordCharacters= passwordCharacters.concat(passCharUpper)
+    }
+      if (lowerLetters === true) {
+        passwordCharacters=passwordCharacters.concat(passCharLower)
+      }
   
+      if (num === true) {
+        passwordCharacters= passwordCharacters.concat(passCharNum)
+      }
+  
+      if (specialCharQ === true) {
+        passwordCharacters= passwordCharacters.concat(passCharSpec)
+      }
 
-
-
-
-
-
-  // TODO: Create multiple if statements that checks if user said yes or no to different confirms that we asked them, and based on their response push those specific characters to our empty array
-
-  if (capitalLetters === true) {
-    finalArray= finalArray.concat(passCharUpper)
+      var randomCharacter = Math.floor(Math.random() * passwordCharacters.length)
+      
+  
+      for (var i = 0; i < passLength; i++) {
+        var randomCharacter = passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)]
+        newPassword = newPassword.concat(randomCharacter)
+      }
+        console.log(newPassword);
+      return newPassword;
+    }
   }
-    if (lowerLetters === true) {
-      finalArray=finalArray.concat(passCharLower)
-    }
-
-    if (num === true) {
-      finalArray= finalArray.concat(passCharNum)
-    }
-
-    if (specialCharQ === true) {
-      finalArray= finalArray.concat(passCharSpec)
-    }
-
-
-    var randomCapital = Math.floor(Math.random() * finalArray.length)
-    var randomLower = Math.floor(Math.random() * finalArray.length)
-    var randomNum = Math.floor(Math.random() * finalArray.length)
-    var randomSpecial = Math.floor(Math.random() * finalArray.length)
-
-    for (var i = 0; i < passLength; i++) {
-//       var passCharSelected = "";
-      var passCharType = finalArray[Math.floor(Math.random() * finalArray.length)]
-      finalPassword = finalPassword.concat(passCharType)
-      console.log(passCharType);
-//       if (passCharType === "Capital") {
-//         passCharSelected = passCharUpper[Math.floor(Math.random() * passCharUpper.length)]
-
-//         console.log(passCharSelected);
-//       }
-
-//       else if (passCharType === "Lower") {
-//         passCharSelected = passCharLower[Math.floor(Math.random() * passCharLower.length)]
-
-//         console.log(passCharSelected);
-//       }
-//       else if(passCharType === "Number") {
-//        passCharSelected=passCharNum[Math.floor(Math.random()*passCharNum.length)]
-
-//       console.log(passCharSelected);
-//       }
-//       else if(passCharType === "Special") {
-//        passCharSelected=passCharSpec[Math.floor(Math.random()*passCharSpec.length)]
-
-//       console.log(passCharSelected);
-//       finalPassword = finalPassword + passCharSelected
-//       console.log(finalPassword);
-//     }
-      console.log(finalPassword);
-    return finalPassword;
-//   }
-}
-
-}
-writePassword()
-
-// var specialCharQ = confirm("Would you like special chars in your password?")
-// var myFinalArrayOfChar = ""
-// var specialC = "@#$%^&**("
-
-// if(passChar === true){
-//   // push all the special chars in the empty array
-//   myFinalArrayOfChar = myFinalArrayOfChar+specialC
-// }
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
