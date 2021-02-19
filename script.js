@@ -55,6 +55,13 @@ function generatePassword() {
   // return;
   // }
 
+// TODO: create a conditional to make sure the user has chosen at least one type of character
+if (capitalLetters|| lowerLetters|| num|| specialCharQ===true) {
+  console.log("They've chosen at least one type of character");
+}
+else {
+alert("You have to choose one ya dingus");
+}
 
   // TODO: Create prompt to ask user if how many char they like they pass to be (at least 8 characters and no more than 128) and set to variable
   var passLength = prompt("How long would you like your password to be? (between 8-128 characters)");
@@ -72,14 +79,7 @@ function generatePassword() {
   }
   console.log(passLength);
 
-  // TODO: create a conditional to make sure the user has chosen at least one type of character
-  if (capitalLetters|| lowerLetters|| num|| specialCharQ===true) {
-      console.log("They've chosen at least one type of character");
-  }
-  else {
-    alert("You have to choose one ya dingus");
-  }
-
+  
 
 
 
